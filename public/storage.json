@@ -1,0 +1,58 @@
+{
+    "products": [
+        {
+            "name": "Nikon Coolpix",
+            "price": "45000",
+            "info": "Compact Digital Cameras (COOLPIX Series). COOLPIX P1000. COOLPIX P1000. 16.0 MP. 125x Zoom · COOLPIX P950. COOLPIX P950. 16.0 MP. 83x Zoom.",
+            "_id": 5
+        },
+        {
+            "name": "AmazonBasics AA ",
+            "price": "2490",
+            "info": "Performance Alkaline Non-Recharg Batteries (8-Pack) - Appearance May Varies",
+            "_id": 7
+        },
+        {
+            "name": "CHKOKKO Men's Cotton ",
+            "price": "399",
+            "info": "Regular Fit Half Sleeves T-Shirt ",
+            "_id": 8
+        },
+        {
+            "name": "Fossil Gen 5 Smartwatch",
+            "price": "22995",
+            "info": "Carlyle Stainless Steel Touchscreen Smartwatch with Speaker, Heart Rate, GPS and Smartphone Notifications - FTW4024 ",
+            "_id": 9
+        },
+        {
+            "name": "Nikon Coolpix 2",
+            "price": "45006",
+            "info": "Enhanced Compact Digital Cameras (COOLPIX Series). COOLPIX P1000. COOLPIX P1000. 16.0 MP. 125x Zoom · COOLPIX P950. COOLPIX P950. 16.0 MP. 83x Zoom.",
+            "_id": 121295
+        },
+        {
+            "name": "HP Pavilion x360",
+            "price": "99990",
+            "info": "Core i7 8th Gen 14-inch Touchscreen 2-in-1 FHD Thin and Light Laptop (16GB/512GB SSD/Windows 10/MS Office/2GB Graphics/Mineral Silver/1.59 kg), 14- dh0045TX ",
+            "_id": 681907
+        }
+    ],
+    "trackers": [
+        {
+            "campaignName": "Subhojits campaign",
+            "channel": 13,
+            "channelTypes": [
+                2,
+                3
+            ],
+            "TrackingOptions": [
+                10
+            ],
+            "startDate": "2020-08-09",
+            "endDate": "2020-08-19",
+            "totalBudget": "900",
+            "totalImpression": "567",
+            "_id": 1
+        }
+    ]
+}
