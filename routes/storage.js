@@ -3,7 +3,7 @@ const storageRoutes = express.Router();
 const fs = require("fs");
 const storagePath = "./public/storage.json";
 const { getData, saveData } = require("../utils/common");
-const storageUrl = "/sd-db-1021/collections/:type/";
+const storageUrl = "/collections/:type/";
 
 storageRoutes.post(storageUrl, (req, res) => {
     const { type } = req.params;
