@@ -11,6 +11,4 @@ const storageRoutes = require('./storage');
 router.use(accountRoutes);
 router.use(storageRoutes);
 
-
-
 module.exports = router;

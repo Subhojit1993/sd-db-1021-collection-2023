@@ -1,8 +1,7 @@
 const express = require("express");
 const storageRoutes = express.Router();
 const fs = require("fs");
-const storagePath = "./public/storage.json";
-const { getData, saveData } = require("../utils/common");
+const { getData, saveData, storagePath } = require("../utils/common");
 const storageUrl = "/collections/:type/";
 
 storageRoutes.post(storageUrl, (req, res) => {
