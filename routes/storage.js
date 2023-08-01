@@ -1,13 +1,13 @@
 const express = require("express");
 const storageRoutes = express.Router();
 const fs = require("fs");
-const { getData, saveData, storagePath } = require("../utils/common");
+const { getData, saveData, STORAGE_PATH } = require("../utils/common");
 const storageUrl = "/collections/:type/";
 
 storageRoutes.post(storageUrl, (req, res) => {
     const { type } = req.params;
     // get existing data collection
-    const existingDataCollection = getData(storagePath);
+    const existingDataCollection = getData(STORAGE_PATH);
     // get the existing data set fot the specific type
     const newData = [...existingDataCollection[type]];
     // define and initialize unique id
@@ -19,7 +19,7 @@ storageRoutes.post(storageUrl, (req, res) => {
     // send back the data into the specified type
     existingDataCollection[type] = newData;
     // update the collection storage
-    saveData(storagePath, existingDataCollection);
+    saveData(STORAGE_PATH, existingDataCollection);
     // set the display response
     let displayResponse = element;
     // send the success response
@@ -30,7 +30,7 @@ storageRoutes.get(storageUrl, (req, res) => {
     const { type } = req.params;
     const { quer } = req.query;
     // get existing data collection// fetch the collection from the storage related to the products
-    let existingDataCollection = getData(storagePath);
+    let existingDataCollection = getData(STORAGE_PATH);
     // get the existing data-set fot the specific type
     let existingCollectionTypeData = [...existingDataCollection[type]];
 
@@ -52,9 +52,9 @@ storageRoutes.get(storageUrl, (req, res) => {
 storageRoutes.patch(`${storageUrl}:id`, (req, res) => {
     const { id, type } = req.params;
     // get existing data collection
-    let existingDataCollection = getData(storagePath);
+    let existingDataCollection = getData(STORAGE_PATH);
     // read the file from the system
-    fs.readFile(storagePath, "utf-8", (_error, _data) => {
+    fs.readFile(STORAGE_PATH, "utf-8", (_error, _data) => {
         // get the existing data-set fot the specific type
         let existingCollectionTypeData = [...existingDataCollection[type]];
         // get the data-object related to the specified type
@@ -75,7 +75,7 @@ storageRoutes.patch(`${storageUrl}:id`, (req, res) => {
         // set back the existing data collection with respect to the specified type
         existingDataCollection[type] = existingCollectionTypeData;
         // save the data
-        saveData(storagePath, existingDataCollection);
+        saveData(STORAGE_PATH, existingDataCollection);
         // set the display response
         let displayResponse = new Object();
         // Initialize the object of type
@@ -91,9 +91,9 @@ storageRoutes.patch(`${storageUrl}:id`, (req, res) => {
 storageRoutes.delete(`${storageUrl}:id`, (req, res) => {
     const { id, type } = req.params;
     // get existing data collection
-    let existingDataCollection = getData(storagePath);
+    let existingDataCollection = getData(STORAGE_PATH);
     // read the file from the system
-    fs.readFile(storagePath, "utf-8", (_error, _data) => {
+    fs.readFile(STORAGE_PATH, "utf-8", (_error, _data) => {
         // get the existing data-set fot the specific type
         let existingCollectionTypeData = [...existingDataCollection[type]];
         // get the data-object related to the specified type
@@ -113,7 +113,7 @@ storageRoutes.delete(`${storageUrl}:id`, (req, res) => {
         // set back the data collection
         existingDataCollection[type] = existingCollectionTypeData;
         // re-write the data
-        saveData(storagePath, existingDataCollection);
+        saveData(STORAGE_PATH, existingDataCollection);
 
         // set the display response
         let displayResponse = new Object();

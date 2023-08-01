@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const { isUserExists, isPasswordModified, PASSWORD, accountsPath } = require("../utils/common");
+const { findByProperty, EMAIL, PASSWORD, ACCOUNTS_PATH } = require("../utils/common");
 const { validAccount } = require('../models/auth');
 const initialState = { error: false, msg: '' };
 
@@ -59,7 +59,7 @@ const permission = (user, updatePermission) => {
     // if no validation error
     if (!validationError.error) {
         // check if the user exist
-        let isUserExist = isUserExists(user, accountsPath);
+        let isUserExist = findByProperty(user, EMAIL, ACCOUNTS_PATH);
         // if exists
         if (isUserExist) {
             // set validations
