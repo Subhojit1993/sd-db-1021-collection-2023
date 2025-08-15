@@ -48,6 +48,35 @@ storageRoutes.get(storageUrl, (req, res) => {
     res.send(existingCollectionTypeData);
 });
 
+storageRoutes.get(`${storageUrl}:id`, (req, res) => {
+    const { id, type } = req.params;
+    // get existing data collection// fetch the collection from the storage related to the products
+    let existingDataCollection = getData(STORAGE_PATH);
+    // get the existing data-set fot the specific type
+    let existingCollectionTypeData = [...existingDataCollection[type]];
+
+    // search filter implementation based on query
+    if (id) {
+        // check if the data is existing
+        const isDataExist = existingCollectionTypeData.some((element) => Number(element._id) === Number(id));
+
+        // if data is not existing
+        if(!isDataExist) {
+            return res
+                .status(400)
+                .send({ error: true, msg: `Unable to find the ${type}` });
+        }
+
+        // get the data-object related to the specified type
+        const existingCollectionTypeDetails = existingCollectionTypeData.find((element) =>
+            Number(element._id) === Number(id)
+        );
+
+        // send the response with the collection of specified types
+        res.send(existingCollectionTypeDetails);
+    }
+});
+
 // Storage update query
 storageRoutes.patch(`${storageUrl}:id`, (req, res) => {
     const { id, type } = req.params;
